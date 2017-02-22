@@ -11,8 +11,9 @@ Widget::Widget(QWidget *parent) :
     vbox = new QVBoxLayout();
 
     label1 = new QLabel("Threshold: ", this);
-    label2 = new QLabel("Gradient: ", this);
     label3 = new QLabel("", this);
+/*
+    label2 = new QLabel("Gradient: ", this);
 
     colors = new QStringList();
     colors->append("Blue");
@@ -24,24 +25,29 @@ Widget::Widget(QWidget *parent) :
     combo1->addItems(*colors);
     combo2 = new QComboBox();
     combo2->addItems(*colors);
-
+*/
     threshold = new QSpinBox();
+    threshold->setMaximum(100);
+    connect(threshold, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), canvas, static_cast<void (Mandelbrot::*)(int)>(&Mandelbrot::changeThreshold));
+    threshold->setValue(16);
 
-    status = new QStatusBar();
+//    status = new QStatusBar();
 
     vbox->addWidget(label1);
     vbox->addWidget(threshold);
+/*
     vbox->addWidget(label2);
     vbox->addWidget(combo1);
     vbox->addWidget(combo2);
+*/
     vbox->addWidget(label3, 1, Qt::AlignBottom);
 
     hbox->addWidget(canvas, 1);
     hbox->addLayout(vbox);
 
     hbox->setMargin(1);
-
     setLayout(hbox);
+    canvas->update();
 }
 
 Widget::~Widget()
