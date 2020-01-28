@@ -1,8 +1,8 @@
-# mandelbrot
-Simple mandelbrot application written in C++ and Qt
+# Mandelbrot
+Simple mandelbrot application written in C++, Qt.
 
-![alt tag](https://github.com/paraficial/mandelbrot/blob/master/mandelbrot_example.png)
+![screenshot](./mandelbrot_example.png)
 
-Features:
-. Navigation with mouse and mouse wheel
-. Adapting threshold by spinbox
+## Features
+- Navigation with mouse and mouse wheel
+- Adapting threshold by spinbox
